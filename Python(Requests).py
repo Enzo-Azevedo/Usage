@@ -1,13 +1,11 @@
 import requests
 
-url = "https://api.testmail.top/domain/check/"
+email = "example@gmail.com"
 
-querystring = {"data":"example@mail.com","ip":"8.8.8.8"}
+querystring = {"data":f"{email}","ip":"8.8.8.8"}
 
-headers = {
-    'Authorization', "Bearer XXXXXXXXXX.XXXXXXXXXX.XXXXXXXXXX"
-    }
+headers = {'Authorization': "Bearer XXXXXXXXXX.XXXXXXXXXX.XXXXXXXXXX"}
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.get("https://api.testmail.top/domain/check/" , headers=headers, params=querystring)
 
 print(response.text)
